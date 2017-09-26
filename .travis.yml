@@ -19,3 +19,4 @@ deploy:
   on:
     repo: CraftAcademy/laundry_time
     branch: develop
+  run: bundle exec rails db:migrate
