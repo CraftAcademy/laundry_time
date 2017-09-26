@@ -3,15 +3,15 @@ cache: bundler
 rvm:
   - 2.4.0
 before_script:
-  - bundle exec rake db:create --all
-  - bundle exec rake db:migrate
+  - bundle exec rake db:create
+  - bundle exec rake db:migrate db:test:prepare
 script:
   - bundle exec rake ci:tests
 
 deploy:
   provider: heroku
   api_key:
-    secure: "F2zJw4cLlvJgf9J/5g2a5iDXixfL15T7AlxelzN1Mo3157JZVKewE6Z+erxkDvEFOzCG+cewDtFwSl0K9DNJ9ri/WOMseR4qQYf/AicGXABw4I3qct8A5AYHTLBLADQoSWB/RPNesqdUYJlNSo+PYwmlMyrS0Mrv3rsmMUURTizUczDpTe0NCNyvJktgXH1fvwsXJRynrCzuaJJKCos+ewmn4Z5XBdglPEtPSsFSfIJj/zOKYUEMgB298FEj3N1C8nS2r6Wadr2b6VgKPqJz/imeuJ8Vzk1jY4QmvuYo5cYJf2lLDeyBNrvTPEzLTcotWYjaeC75ZyGlYV6MJWUC8yLsbgFHP4LGn8aMXsmWOFyx2I63CZy7S9PfPnlpUvCfszcKLSNIziFPzD//SBZsLxyA3ovBPbu7DtHV3xt32PruT9Q3c4uZRgwJmRJNOWZ47Zh8bJhh21aU1YnVsb9pHQpqme7HvFNppjSR/WFwOmQv0x6hph1oajCYX9NIRGW7Qx0GZwszNSDgrWiwqUj4z3XT4IapMOlUnd/QKVF8b0l31MB7EC8O/v43Z7XEoqyzLz72lfUyhH6FTuIxY6QWnLM8YY+w+2SRglnFneymZLd+eltkZ7SLhGWI7q9K5LuWxA+VvUv+tyWglJpU6N34D4obJU+FuKTHHmgSPf7FXr0="
+    secure: F2zJw4cLlvJgf9J/5g2a5iDXixfL15T7AlxelzN1Mo3157JZVKewE6Z+erxkDvEFOzCG+cewDtFwSl0K9DNJ9ri/WOMseR4qQYf/AicGXABw4I3qct8A5AYHTLBLADQoSWB/RPNesqdUYJlNSo+PYwmlMyrS0Mrv3rsmMUURTizUczDpTe0NCNyvJktgXH1fvwsXJRynrCzuaJJKCos+ewmn4Z5XBdglPEtPSsFSfIJj/zOKYUEMgB298FEj3N1C8nS2r6Wadr2b6VgKPqJz/imeuJ8Vzk1jY4QmvuYo5cYJf2lLDeyBNrvTPEzLTcotWYjaeC75ZyGlYV6MJWUC8yLsbgFHP4LGn8aMXsmWOFyx2I63CZy7S9PfPnlpUvCfszcKLSNIziFPzD//SBZsLxyA3ovBPbu7DtHV3xt32PruT9Q3c4uZRgwJmRJNOWZ47Zh8bJhh21aU1YnVsb9pHQpqme7HvFNppjSR/WFwOmQv0x6hph1oajCYX9NIRGW7Qx0GZwszNSDgrWiwqUj4z3XT4IapMOlUnd/QKVF8b0l31MB7EC8O/v43Z7XEoqyzLz72lfUyhH6FTuIxY6QWnLM8YY+w+2SRglnFneymZLd+eltkZ7SLhGWI7q9K5LuWxA+VvUv+tyWglJpU6N34D4obJU+FuKTHHmgSPf7FXr0=
   app: laundrytime
   on:
     repo: CraftAcademy/laundry_time
