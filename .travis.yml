@@ -1,17 +1,16 @@
 language: ruby
 cache: bundler
 rvm:
-  - 2.4.0
+- 2.4.0
 before_script:
-  - bundle exec rake db:create --all
-  - bundle exec rake db:migrate
+- bundle exec rake db:create --all
+- bundle exec rake db:migrate
 script:
-  - bundle exec rake ci:tests
-
+- bundle exec rake ci:tests
 deploy:
   provider: heroku
   api_key:
-    secure: "F2zJw4cLlvJgf9J/5g2a5iDXixfL15T7AlxelzN1Mo3157JZVKewE6Z+erxkDvEFOzCG+cewDtFwSl0K9DNJ9ri/WOMseR4qQYf/AicGXABw4I3qct8A5AYHTLBLADQoSWB/RPNesqdUYJlNSo+PYwmlMyrS0Mrv3rsmMUURTizUczDpTe0NCNyvJktgXH1fvwsXJRynrCzuaJJKCos+ewmn4Z5XBdglPEtPSsFSfIJj/zOKYUEMgB298FEj3N1C8nS2r6Wadr2b6VgKPqJz/imeuJ8Vzk1jY4QmvuYo5cYJf2lLDeyBNrvTPEzLTcotWYjaeC75ZyGlYV6MJWUC8yLsbgFHP4LGn8aMXsmWOFyx2I63CZy7S9PfPnlpUvCfszcKLSNIziFPzD//SBZsLxyA3ovBPbu7DtHV3xt32PruT9Q3c4uZRgwJmRJNOWZ47Zh8bJhh21aU1YnVsb9pHQpqme7HvFNppjSR/WFwOmQv0x6hph1oajCYX9NIRGW7Qx0GZwszNSDgrWiwqUj4z3XT4IapMOlUnd/QKVF8b0l31MB7EC8O/v43Z7XEoqyzLz72lfUyhH6FTuIxY6QWnLM8YY+w+2SRglnFneymZLd+eltkZ7SLhGWI7q9K5LuWxA+VvUv+tyWglJpU6N34D4obJU+FuKTHHmgSPf7FXr0="
+    secure: kNlptCXK6qE7uCaxfcxBpXbJsZcqXo5kCAc9XEYulsdHR+UPQjeUpK5yejl0vOcc4AhmwnJdZkxpknJC1g4GY02gOvzucQzhQYxQGnbb+eJMS+QZeezIHof8qswZXLAdWz0vrEnLJknD9TaL4arvUI1gPfCqAXGM+SHwVOZlwONKNCaovphNXf6EyNFJF+EtMceYdhCyldn+3ONmuSW43nHl+K7zUm3VnkQWudgk2Bmc16zubTHlmxXBWm09o5e2M5rsZR79m7EkeTLWZM+6IqaVOLYAPxGWKeqf9RxH9d+HXpokKBaoxd6RIFgvJPa90z/ojpGOCxNkgd57Bhh+B7bQrDKqUFzbCC84Dgq1mbOx74mNt0xzVNku7t4G4uvqnZmsZG4biE/6rbQJ/9u5wekw3XJaqiMBxbHsv9sGsCpHHP/yXU1jpT5J+UyNRiSWAX1EPjPd0P2FgmO5ObqUYihaPh1wBuS7yAKrcK1I8McbhqIIt8ocWbbnaePOM6iHnFxrwQI4lXYSmKlm4VcIisubJvSXLr0t4d0uevnv1wiYDVgokepQ4mHgpFCzZw1QPt/whPaBdbDrmFuKCk37qmKv1ro3aYaFNWZRHYTEdWS12D4aa4ydCvPrb1qWrDCJN04rdkqwO4pmtbbolyh77gfJvYwDpuinQMerWTHvYxs=
   app: laundrytime
   on:
     repo: CraftAcademy/laundry_time
