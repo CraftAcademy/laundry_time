@@ -3,3 +3,9 @@
 <p>This is where the cleaning magic happens - book the laundry room online and save precious dreamtime!
   If you don't have an account, you can sign up with your name and apartment number - and soon enough your clothes will smell of fresh rainbows.
   Having problems with the site? Email our system admin at unicorn_boss@rainbows.now</p>
+
+<%= link_to 'Sign Up', new_user_registration_path %>
+
+<% flash.each do |message_type, message| %>
+    <%= content_tag(:div, message) %>
+<% end %>
