@@ -3,8 +3,8 @@ cache: bundler
 rvm:
 - 2.4.0
 before_script:
-- bundle exec rake db:create --all
-- bundle exec rake db:migrate
+- bundle exec rake db:create
+- bundle exec rake db:migrate db:test:prepare
 script:
 - bundle exec rake ci:tests
 deploy:
