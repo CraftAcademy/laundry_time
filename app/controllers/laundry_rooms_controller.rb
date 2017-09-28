@@ -1,5 +1,5 @@
 class LaundryRoomsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:create_booking]
 
   def index
     @laundry_rooms = LaundryRoom.all

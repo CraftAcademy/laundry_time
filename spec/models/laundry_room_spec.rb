@@ -41,14 +41,16 @@ RSpec.describe LaundryRoom, type: :model do
       let(:perform_booking_by_user) do
         lambda {
           user.book! subject,
-                     time: @first_slot
+                     time: @first_slot,
+                     amount: 1
         }
       end
 
       let(:perform_booking_by_room) do
         lambda {
           subject.be_booked! user,
-                     time: @second_slot
+                             time: @second_slot,
+                             amount: 1
         }
       end
 

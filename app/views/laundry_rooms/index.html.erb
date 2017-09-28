@@ -8,6 +8,7 @@
 <%= link_to 'Book', '/laundry_rooms' %>
 <%= link_to 'Sign in', '/users/sign_in' %>
 <%= link_to 'Sign Up', new_user_registration_path %>
+<%= link_to 'Calendar', calendar_index_path %>
 <% flash.each do |message_type, message| %>
   <%= content_tag(:div, message) %>
 <% end %>
