@@ -13,6 +13,7 @@ module Temporal
   private
 
   def parse_time(time)
-    Time.parse(time)
+    zone = ActiveSupport::TimeZone.new('Stockholm')
+    ActiveSupport::TimeZone[zone.name].parse(time)
   end
 end

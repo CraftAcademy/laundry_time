@@ -2,7 +2,8 @@ RSpec.describe LaundryRoom, type: :model do
   subject do
     # We are freezing time to midnight at Sept 1st
     # `2017-09-01 00:00:00 +0200`
-    Timecop.freeze(Time.parse('2017-09-01'))
+    zone = ActiveSupport::TimeZone.new('Stockholm')
+    Timecop.freeze(ActiveSupport::TimeZone[zone.name].parse('2017-09-01'))
     # ...and creating a LaundryRoom
     create(:laundry_room)
   end
