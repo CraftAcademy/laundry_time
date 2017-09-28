@@ -3,8 +3,8 @@ Given(/^I am on the laundry room page$/) do
 end
 
 
-And(/^I am logged in as a user with email "([^"]*)" and password "([^"]*)"$/) do |email, password|
-  user = User.create(email: email, password: password)
+Given(/^I am logged in as that user$/) do
+  user = User.last
   login_as(user)
 end
 
