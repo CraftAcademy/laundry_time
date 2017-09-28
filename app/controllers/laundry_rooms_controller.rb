@@ -11,6 +11,12 @@ class LaundryRoomsController < ApplicationController
     slot_to_book = room.schedule
                        .occurrences(1.week.from_now)
                        .detect { |occ| occ.beginning_of_hour.localtime == slot.localtime }
-    current_user.book! room, time: slot_to_book
+    binding.pry
+    if current_user.book! room, time: slot_to_book
+      redirect_to root_path, notice: "You have a booking #{slot.localtime.to_formatted_s(:short)}. Great stuff"
+    else
+      redirect_to root_path, notice: 'That did not work out....'
+    end
+
   end
 end

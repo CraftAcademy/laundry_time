@@ -13,6 +13,6 @@ Given(/^I fill in "([^"]*)" with "([^"]*)"$/) do |item, content|
 end
 
 And(/^there is a user logged in$/) do
-  user = FactoryGirl.create(:user)
-  login_as user, scope: :user
+  @user = FactoryGirl.create(:user)
+  login_as @user, scope: :user
 end

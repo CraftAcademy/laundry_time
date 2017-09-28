@@ -27,8 +27,8 @@
       <td>
         <table>
           <% room.schedule.next_occurrences(4).each do |slot| %>
-            <tr>
-              <td id="slot-<%=room.id %>">
+            <tr data-date="<%= slot.localtime.beginning_of_hour.to_formatted_s(:short) %>">
+              <td>
                 <%= slot.localtime.beginning_of_hour.to_formatted_s(:short) %>
               </td>
               <td>
