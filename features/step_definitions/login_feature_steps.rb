@@ -3,6 +3,5 @@ Given(/^There is a user with email "([^"]*)" and password "([^"]*)" in our datab
 end
 
 Then(/^I am on the index page$/) do
-  # redirect 'landing#index'
   expect(page).to have_current_path(root_path)
 end

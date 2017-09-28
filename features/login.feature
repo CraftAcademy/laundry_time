@@ -3,13 +3,14 @@ Feature: As a user
   I would like to be able to log in to LaundryTime
 
   Background:
-    Given There is a user with email "unicorn@test" and password "password" in our database
+    Given There is a user with email "unicorn@test.com" and password "password" in our database
 
   Scenario: User provides valid credentials
     Given I navigate to the index page
     And I click on "Log In"
     And I fill in "Email" with "unicorn@test.com"
     And I fill in "Password" with "password"
+    Then show me the page
     And I click on "Log in"
     Then I should see the text "Signed in successfully."
 
