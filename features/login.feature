@@ -11,6 +11,7 @@ Feature: As a user
     And I fill in "Email" with "unicorn@test.com"
     And I fill in "Password" with "password"
     And I click on "Log in"
+    Then I am on the index page
     And I should see the text "Signed in successfully."
 
   Scenario: User provides wrong email
