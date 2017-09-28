@@ -1,4 +1,4 @@
-class CreateLaundryRooms < ActiveRecord::Migration[5.1]
+class CreateLaundryRooms < ActiveRecord::Migration[5.0]
   def change
     create_table :laundry_rooms do |t|
 

@@ -4,7 +4,7 @@ RSpec.describe LaundryRoom, type: :model do
     # `2017-09-01 00:00:00 +0200`
     Timecop.freeze(Time.parse('2017-09-01'))
     # ...and creating a LaundryRoom
-    create(:laundry_rooms)
+    create(:laundry_room)
   end
 
   let(:user) { create(:user) }
@@ -19,8 +19,8 @@ RSpec.describe LaundryRoom, type: :model do
 
   describe 'booking methods' do
     before do
-      # Here we crate two instance variablel using the
-      # `next_occurances` method.
+      # Here we crate two instance variables using the
+      # `next_occurrences` method.
       @first_slot, @second_slot = subject.schedule.next_occurrences(2)
     end
 
@@ -30,7 +30,7 @@ RSpec.describe LaundryRoom, type: :model do
       expect(subject.bookable?).to be_truthy
     end
 
-    it 'has occurences in the future' do
+    it 'has occurrences in the future' do
       expect(@first_slot.localtime.to_s)
           .to eq '2017-09-01 08:00:00 +0200'
       expect(@second_slot.localtime.to_s)

@@ -15,45 +15,45 @@ ActiveRecord::Schema.define(version: 20170926121737) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "acts_as_bookable_bookings", force: :cascade do |t|
-    t.string "bookable_type"
-    t.bigint "bookable_id"
-    t.string "booker_type"
-    t.bigint "booker_id"
-    t.integer "amount"
-    t.text "schedule"
+  create_table "acts_as_bookable_bookings", id: :bigserial, force: :cascade do |t|
+    t.string   "bookable_type"
+    t.bigint   "bookable_id"
+    t.string   "booker_type"
+    t.bigint   "booker_id"
+    t.integer  "amount"
+    t.text     "schedule"
     t.datetime "time_start"
     t.datetime "time_end"
     t.datetime "time"
     t.datetime "created_at"
-    t.index ["bookable_type", "bookable_id"], name: "index_acts_as_bookable_bookings_bookable"
-    t.index ["booker_type", "booker_id"], name: "index_acts_as_bookable_bookings_booker"
+    t.index ["bookable_type", "bookable_id"], name: "index_acts_as_bookable_bookings_bookable", using: :btree
+    t.index ["booker_type", "booker_id"], name: "index_acts_as_bookable_bookings_booker", using: :btree
   end
 
-  create_table "laundry_rooms", force: :cascade do |t|
+  create_table "laundry_rooms", id: :bigserial, force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "schedule"
+    t.text     "schedule"
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.integer "apartment_nr"
-    t.string "password"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
+  create_table "users", id: :bigserial, force: :cascade do |t|
+    t.string   "name"
+    t.integer  "apartment_nr"
+    t.string   "password"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer "sign_in_count", default: 0, null: false
+    t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.inet "current_sign_in_ip"
-    t.inet "last_sign_in_ip"
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
 end
