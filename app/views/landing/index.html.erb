@@ -4,8 +4,9 @@
   If you don't have an account, you can sign up with your name and apartment number - and soon enough your clothes will smell of fresh rainbows.
   Having problems with the site? Email our system admin at unicorn_boss@rainbows.now</p>
 
-<% if user_signed_in? %>
-    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+<% if current_user %>
+    <%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
+<% else %>
+    <%= link_to 'Sign Up', new_user_registration_path %>
+    <%= link_to 'Log In', new_user_session_path %>
 <% end %>
-<%= link_to 'Log In', new_user_session_path %>
-<%= link_to 'Sign Up', new_user_registration_path %>
