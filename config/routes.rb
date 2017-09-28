@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
 
-  get 'laundry_room/index'
 
-  root controller: :landing, action: :index
-  resources :laundry_room
+  root controller: :laundry_rooms, action: :index
+  resources :laundry_rooms, only: [:index]
   devise_for :users
 end

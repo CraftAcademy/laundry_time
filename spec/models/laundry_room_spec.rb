@@ -4,7 +4,7 @@ RSpec.describe LaundryRoom, type: :model do
     # `2017-09-01 00:00:00 +0200`
     Timecop.freeze(Time.parse('2017-09-01'))
     # ...and creating a LaundryRoom
-    create(:laundry_room)
+    create(:laundry_rooms)
   end
 
   let(:user) { create(:user) }
