@@ -1,14 +1,15 @@
 RSpec.describe LaundryRoom, type: :model do
   subject do
-    # We are freezing time to midnight at Sept 1st
-    # `2017-09-01 00:00:00 +0200`
-    zone = ActiveSupport::TimeZone.new('Stockholm')
-    Timecop.freeze(ActiveSupport::TimeZone[zone.name].parse('2017-09-01'))
-    # ...and creating a LaundryRoom
     create(:laundry_room)
   end
 
   let(:user) { create(:user) }
+
+  before do
+    zone = ActiveSupport::TimeZone['Stockholm']
+    Time.zone = zone
+    Timecop.freeze(Time.parse('2017-09-01'))
+  end
 
   it 'has a schedule' do
     expect(subject.schedule).to_not eq nil
@@ -32,9 +33,9 @@ RSpec.describe LaundryRoom, type: :model do
     end
 
     it 'has occurrences in the future' do
-      expect(@first_slot.localtime.to_s)
+      expect(@first_slot.to_s)
           .to eq '2017-09-01 08:00:00 +0200'
-      expect(@second_slot.localtime.to_s)
+      expect(@second_slot.to_s)
           .to eq '2017-09-01 13:00:00 +0200'
     end
 
@@ -85,7 +86,7 @@ RSpec.describe LaundryRoom, type: :model do
 
         it 'booking has the correct time' do
           perform_booking_by_room.call
-          expect(subject.bookings.first.time.localtime.to_s)
+          expect(subject.bookings.first.time.to_s)
               .to eq '2017-09-01 13:00:00 +0200'
         end
       end

@@ -28,12 +28,12 @@
       <td>
         <table>
           <% room.schedule.next_occurrences(4).each do |slot| %>
-            <tr data-date="<%= slot.localtime.beginning_of_hour.to_formatted_s(:short) %>">
+            <tr data-date="<%= slot.beginning_of_hour.to_formatted_s(:short) %>">
               <td>
-                <%= slot.localtime.beginning_of_hour.to_formatted_s(:short) %>
+                <%= slot.beginning_of_hour.to_formatted_s(:short) %>
               </td>
               <td>
-                <%= link_to 'Book', laundry_room_create_booking_path(room, time: slot.localtime.beginning_of_hour.to_formatted_s(:short)) %>
+                <%= link_to 'Book', laundry_room_create_booking_path(room, time: slot.beginning_of_hour.to_formatted_s(:short)) %>
               </td>
             </tr>
           <% end %>

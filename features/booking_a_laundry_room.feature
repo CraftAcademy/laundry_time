@@ -1,3 +1,4 @@
+@time
 Feature: user should be able to book time in laundry room
   As a user
   In order to get my washing done

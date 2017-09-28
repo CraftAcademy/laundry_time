@@ -24,7 +24,7 @@ end
 
 
 Given(/^laundry is booked at "([^"]*)"$/) do |date|
-  slot = Time.parse(date)
+  slot = Time.zone.parse(date)
   slot_to_book = @laundry.schedule
                      .occurrences(1.week.from_now)
                      .detect { |occ| occ.beginning_of_hour.localtime == slot.localtime }
