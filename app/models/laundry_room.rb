@@ -11,7 +11,7 @@ class LaundryRoom < ApplicationRecord
 
   def add_schedule
     self.schedule = IceCube::Schedule.new
-    # self.schedule.add_recurrence_rule IceCube::Rule.daily.hour_of_day(8,13)
+    self.schedule.add_recurrence_rule IceCube::Rule.daily.hour_of_day(8,13)
   end
 end
 

@@ -15,7 +15,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
-gem 'acts_as_bookable', git: 'https://github.com/CraftAcademy/acts_as_bookable', branch: 'master'
+gem 'acts_as_bookable', '~> 0.1.4'
+#gem 'acts_as_bookable', git: 'https://github.com/CraftAcademy/acts_as_bookable', branch: 'master'
 
 group :development, :test do
   gem 'pry-byebug'
@@ -26,6 +27,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'database_cleaner'
   gem 'launchy'
+  gem 'rspec-timecop'
 end
 
 group :development do
