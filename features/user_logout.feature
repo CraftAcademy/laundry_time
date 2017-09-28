@@ -7,7 +7,7 @@ Feature: As a user
     And I am logged in as that user
 
   Scenario: user can log out
-    Given I am on the laundry room page
+    Given I navigate to the index page
     Given I click on "Sign out"
-    Then I should see the text "You have logged out successfully."
+    Then I should see the text "Signed out successfully."
     And I should be on the index page
