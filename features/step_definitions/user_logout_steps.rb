@@ -2,8 +2,9 @@ Given(/^I am on the laundry room page$/) do
   visit '/laundry_room'
 end
 
-Given(/^I am logged in as a user with email "([^"]*)"$/) do |email|
-  user = User.find_by email: email
+
+And(/^I am logged in as a user with email "([^"]*)" and password "([^"]*)"$/) do |email, password|
+  user = User.create(email: email, password: password)
   login_as(user)
 end
 
