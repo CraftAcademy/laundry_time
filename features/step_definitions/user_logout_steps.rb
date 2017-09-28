@@ -4,8 +4,8 @@ end
 
 
 Given(/^I am logged in as that user$/) do
-  user = User.last
-  login_as(user)
+  @user = User.last
+  login_as(@user)
 end
 
 Then(/^I should be on the index page$/) do
