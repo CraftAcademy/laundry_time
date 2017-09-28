@@ -22,10 +22,9 @@ World Warden::Test::Helpers
 World Temporal
 
 Before('@time') do
-  zone = ActiveSupport::TimeZone['Hawaii']
+  zone = ActiveSupport::TimeZone['Stockholm']
   Time.zone = zone
 end
-
 
 After('@time') do
   back_to_the_future
