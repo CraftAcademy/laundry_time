@@ -26,5 +26,5 @@ Feature: As a user
     And I fill in "Password" with "PassWord"
     And I click on "Sign up"
     And I should see the text "You made a mistake"
-    
+
 
