@@ -1,5 +1,5 @@
 Given(/^I am on the laundry room page$/) do
-  visit '/laundry_room'
+  visit laundry_room_path
 end
 
 

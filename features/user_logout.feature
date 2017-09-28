@@ -3,7 +3,7 @@ Feature: As a user
   I should be able to log out of my account
 
   Background:
-    Given There is a user with email "unicorn@test" and password "password" in our database
+    Given There is a user with email "unicorn@test.com" and password "password" in our database
     And I am logged in as that user
 
   Scenario: user can log out
