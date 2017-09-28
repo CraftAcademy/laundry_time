@@ -4,12 +4,7 @@ Feature: As a user
 
   Background:
     Given There is a user with email "unicorn@test" and password "password" in our database
-    And I navigate to the index page
-    And I click on "Log In"
-    And I fill in "Email" with "unicorn@test.com"
-    And I fill in "Password" with "password"
-    And I click on "Sign up"
-    And I should see the text "Welcome! You have logged in successfully."
+    And I am logged in as a user with email "unicorn@test"
 
   Scenario: user can log out
     Given I am on the laundry room page
