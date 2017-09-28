@@ -1,8 +1,3 @@
-Given(/^I am on the laundry room page$/) do
-  visit laundry_room_path
-end
-
-
 Given(/^I am logged in as that user$/) do
   @user = User.last
   login_as(@user)
