@@ -10,17 +10,16 @@ Feature: As a user
     And I click on "Log In"
     And I fill in "Email" with "unicorn@test.com"
     And I fill in "Password" with "password"
-    Then show me the page
     And I click on "Log in"
     Then I should see the text "Signed in successfully."
 
   Scenario: User provides wrong email
     Given I navigate to the index page
     Given I click on "Log In"
-    And I fill in "Email" with "Unicorn@test.com"
+    And I fill in "Email" with "EmbarrassedUnicorn@test.com"
     And I fill in "Password" with "password"
     And I click on "Log in"
-    And I should see the text "You made a mistake"
+    And I should see the text "Invalid Email or password."
 
   Scenario: User provides wrong password
     Given I navigate to the index page
@@ -28,6 +27,6 @@ Feature: As a user
     And I fill in "Email" with "unicorn@test.com"
     And I fill in "Password" with "PassWord"
     And I click on "Log in"
-    And I should see the text "You made a mistake"
+    And I should see the text "Invalid Email or password."
 
 
