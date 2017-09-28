@@ -4,7 +4,7 @@ Feature: As a user
 
   Background:
     Given There is a user with email "unicorn@test" and password "password" in our database
-    And I am logged in as a user with email "unicorn@test"
+    And I am logged in as a user with email "unicorn@test" and password "password"
 
   Scenario: user can log out
     Given I am on the laundry room page

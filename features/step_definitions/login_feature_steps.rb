@@ -4,6 +4,5 @@ end
 
 Then(/^I am on the index page$/) do
   # redirect 'landing#index'
-  expect(page).to have_current_path('landing#index')
+  expect(page).to have_current_path(root_path)
 end
-
