@@ -13,6 +13,12 @@
 <% end %>
 <%= link_to 'Calendar', calendar_index_path %>
 
+<% current_user.bookings.each do |bookings| %>
+    <ul>
+      <li><%= bookings[:time].beginning_of_hour %></li>
+    </ul>
+<% end %>
+
 <h1>Book a LaundryTime</h1>
 <table>
   <tr>
