@@ -30,10 +30,21 @@ Explain what these tests test and why
 
 They test creating the user model and sign up with both Rspec and Cucumber
 
+Cucumber example:
 ```
-Give an example
+Scenario:
+  Given I navigate to the index page
+  And I click a link "Calendar"
+  Then I should be on the calendar page
 ```
-
+Rspec example:
+```
+describe 'DB table' do
+  it {is_expected.to have_db_column :id}
+  it {is_expected.to have_db_column :email}
+  it {is_expected.to have_db_column :password}
+end
+```
 
 ### And coding style tests(?)
 
@@ -45,12 +56,13 @@ Give an example
 
 ## Deployment
 
-We automatically deploy this app with [Heroku](https://www.heroku.com/). 
+We automatically deploy this app with [Heroku](https://www.heroku.com/).
 
 ## Built With
 * [Devise](https://github.com/plataformatec/devise)
 * [Rails](https://github.com/rails/rails)
 * [Act_as_bookable](https://github.com/tandusrl/acts_as_bookable)
+* [Simple_calendar](https://github.com/excid3/simple_calendar)
 
 ## Contributing
 
@@ -62,7 +74,7 @@ We automatically deploy this app with [Heroku](https://www.heroku.com/).
 * [Sajaas](https://github.com/Sajaas)
 
 ## License
-MIT license 
+MIT license
 
 ## Acknowledgments
 Built with help from the coaches and some cool gems. Thanks a lot!
