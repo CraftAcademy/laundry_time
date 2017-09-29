@@ -13,9 +13,10 @@
 <% end %>
 <%= link_to 'Calendar', calendar_index_path %>
 
+<h1>Your bookings:</h1>
 <% current_user.bookings.each do |bookings| %>
     <ul>
-      <li><%= bookings[:time].beginning_of_hour %></li>
+      <li><%= bookings[:time].beginning_of_hour.strftime("%A " + "%d/%m/%Y %H:%M") %></li>
     </ul>
 <% end %>
 
