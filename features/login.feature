@@ -7,7 +7,7 @@ Feature: As a user
 
   Scenario: User provides valid credentials
     Given I navigate to the index page
-    And I click on "Log In"
+    And I click on "Sign in"
     And I fill in "Email" with "unicorn@test.com"
     And I fill in "Password" with "password"
     And I click on "Log in"
@@ -15,7 +15,7 @@ Feature: As a user
 
   Scenario: User provides wrong email
     Given I navigate to the index page
-    Given I click on "Log In"
+    Given I click on "Sign in"
     And I fill in "Email" with "EmbarrassedUnicorn@test.com"
     And I fill in "Password" with "password"
     And I click on "Log in"
@@ -23,7 +23,7 @@ Feature: As a user
 
   Scenario: User provides wrong password
     Given I navigate to the index page
-    Given I click on "Log In"
+    Given I click on "Sign in"
     And I fill in "Email" with "unicorn@test.com"
     And I fill in "Password" with "PassWord"
     And I click on "Log in"
