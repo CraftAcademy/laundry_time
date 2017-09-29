@@ -8,21 +8,21 @@ Feature: A user can log in to to the site
     And I navigate to the index page
 
   Scenario: User provides valid credentials
-    Given I click on "Sign in"
+    When I click on "Sign in"
     Then I fill in "Email" with "unicorn@test.com"
     And I fill in "Password" with "password"
     When I click on "Log in"
     Then I should see the text "Signed in successfully."
 
   Scenario: User provides wrong email
-    Given I click on "Sign in"
+    When I click on "Sign in"
     Then I fill in "Email" with "EmbarrassedUnicorn@test.com"
     And I fill in "Password" with "password"
     When I click on "Log in"
     Then I should see the text "Invalid Email or password."
 
   Scenario: User provides wrong password
-    Given I click on "Sign in"
+    When I click on "Sign in"
     Then I fill in "Email" with "unicorn@test.com"
     And I fill in "Password" with "PassWord"
     When I click on "Log in"
