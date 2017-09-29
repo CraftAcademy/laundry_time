@@ -1,0 +1,44 @@
+<h1>It's LaundryTime! </h1>
+<h2>Welcome to LaundryTime for Unicorn-Apartments</h2>
+<p>This is where the cleaning magic happens - book the laundry room online and save precious dreamtime!
+  If you don't have an account, you can sign up with your name and apartment number - and soon enough your clothes will
+  smell of fresh rainbows.
+  Having problems with the site? Email our system admin at unicorn_boss@rainbows.now</p>
+
+<%= link_to 'Book', '/laundry_rooms' %>
+<%= link_to 'Sign in', '/users/sign_in' %>
+<%= link_to 'Sign Up', new_user_registration_path %>
+<%= link_to 'Calendar', calendar_index_path %>
+<% flash.each do |message_type, message| %>
+  <%= content_tag(:div, message) %>
+<% end %>
+
+<h1>Book a LaundryTime</h1>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Slots</th>
+    <th>Actions</th>
+  </tr>
+  <% @laundry_rooms.each do |room| %>
+    <tr>
+      <td>
+        <%= room.id %>
+      </td>
+      <td>
+        <table>
+          <% room.schedule.next_occurrences(4).each do |slot| %>
+            <tr data-date="<%= slot.beginning_of_hour.to_formatted_s(:short) %>">
+              <td>
+                <%= slot.beginning_of_hour.to_formatted_s(:short) %>
+              </td>
+              <td>
+                <%= link_to 'Book', laundry_room_create_booking_path(room, time: slot.beginning_of_hour.to_formatted_s(:short)) %>
+              </td>
+            </tr>
+          <% end %>
+        </table>
+      </td>
+    </tr>
+  <% end %>
+</table>
