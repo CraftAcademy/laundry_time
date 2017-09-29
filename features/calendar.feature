@@ -7,3 +7,6 @@ Feature: User can go to landing page
     Given I navigate to the index page
     And I click on "Calendar"
     Then I should be on the calendar page
+
+  Scenario: User can view bookings in the calendar
+    Then I should see available time slots
