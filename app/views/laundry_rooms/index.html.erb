@@ -14,13 +14,15 @@
 <%= link_to 'Calendar', calendar_index_path %>
 
 <% if current_user %>
-  <% if current_user.bookings %>
-    <h1>Your bookings:</h1>
+  <h1>Your bookings:</h1>
+    <% if current_user.bookings.any? %>
     <% current_user.bookings.each do |bookings| %>
         <ul>
           <li><%= bookings[:time].beginning_of_hour.strftime("%A " + "%d/%m/%Y %H:%M") %></li>
         </ul>
     <% end %>
+  <% else %>
+   <p>You don't have any bookings yet.</p>
   <% end %>
 
   <h1>Book a LaundryTime</h1>
