@@ -7,7 +7,6 @@
 
 <% if current_user %>
     <%= button_to 'Sign out', destroy_user_session_path, method: :delete %>
-    <%= link_to 'Book', '/laundry_rooms' %>
 <% else %>
     <%= link_to 'Sign Up', new_user_registration_path %>
     <%= link_to 'Sign in', '/users/sign_in' %>
