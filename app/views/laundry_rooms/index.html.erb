@@ -13,32 +13,45 @@
 <% end %>
 <%= link_to 'Calendar', calendar_index_path %>
 
-<h1>Book a LaundryTime</h1>
-<table>
-  <tr>
-    <th>ID</th>
-    <th>Slots</th>
-    <th>Actions</th>
-  </tr>
-  <% @laundry_rooms.each do |room| %>
-    <tr>
-      <td>
-        <%= room.id %>
-      </td>
-      <td>
-        <table>
-          <% room.schedule.next_occurrences(4).each do |slot| %>
-            <tr data-date="<%= slot.beginning_of_hour.to_formatted_s(:short) %>">
-              <td>
-                <%= slot.beginning_of_hour.to_formatted_s(:short) %>
-              </td>
-              <td>
-                <%= link_to 'Book', laundry_room_create_booking_path(room, time: slot.beginning_of_hour.to_formatted_s(:short)) %>
-              </td>
-            </tr>
-          <% end %>
-        </table>
-      </td>
-    </tr>
+<% if current_user %>
+  <h1>Your bookings:</h1>
+    <% if current_user.bookings.any? %>
+    <% current_user.bookings.each do |booking| %>
+        <ul>
+          <li><%= booking[:time].beginning_of_hour.to_formatted_s(:short) %></li>
+        </ul>
+    <% end %>
+  <% else %>
+   <p>You don't have any bookings yet.</p>
   <% end %>
-</table>
+
+  <h1>Book a LaundryTime</h1>
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Slots</th>
+        <th>Actions</th>
+      </tr>
+      <% @laundry_rooms.each do |room| %>
+        <tr>
+          <td>
+            <%= room.id %>
+          </td>
+          <td>
+            <table>
+              <% room.schedule.next_occurrences(4).each do |slot| %>
+                <tr data-date="<%= slot.beginning_of_hour.to_formatted_s(:short) %>">
+                  <td>
+                    <%= slot.beginning_of_hour.to_formatted_s(:short) %>
+                  </td>
+                  <td>
+                    <%= link_to 'Book', laundry_room_create_booking_path(room, time: slot.beginning_of_hour.to_formatted_s(:short)) %>
+                  </td>
+                </tr>
+              <% end %>
+            </table>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+<% end %>
