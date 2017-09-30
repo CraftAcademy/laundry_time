@@ -13,6 +13,7 @@ Feature: A user can log in to to the site
     And I fill in "Password" with "password"
     When I click on "Log in"
     Then I should see the text "Signed in successfully."
+    And I should see the text "Logged in as: unicorn@test.com"
 
   Scenario: User provides wrong email
     When I click on "Sign in"
