@@ -9,11 +9,11 @@ Feature: user should be able to book time in laundry room
 
   Scenario: User can book a laundry time
     Given user visits the booking page
-    And I click on "Book" for first "01 Sep 08:00"
-    Then I should see the text "You have a booking 01 Sep 08:00. Great stuff"
+    And I click on "Book" for first "01 Oct 08:00"
+    Then I should see the text "You have a booking 01 Oct 08:00. Great stuff"
 
   Scenario: User tries to book a booked slot
-    Given laundry is booked at "01 Sep 08:00"
+    Given laundry is booked at "01 Oct 08:00"
     And user visits the booking page
-    Given I click on "Book" for first "01 Sep 08:00"
+    Given I click on "Book" for first "01 Oct 08:00"
     Then I should see the text "The laundry room is fully booked"
