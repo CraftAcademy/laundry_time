@@ -14,18 +14,18 @@
 <%= link_to 'Calendar', calendar_index_path %>
 
 <% if current_user %>
-    <h1>Your bookings:</h1>
+  <h1>Your bookings:</h1>
     <% if current_user.bookings.any? %>
-        <% current_user.bookings.each do |booking| %>
-            <ul>
-              <li><%= booking[:time].beginning_of_hour.to_formatted_s(:short) %></li>
-            </ul>
-        <% end %>
-    <% else %>
-        <p>You don't have any bookings yet.</p>
+    <% current_user.bookings.each do |booking| %>
+        <ul>
+          <li><%= booking[:time].beginning_of_hour.to_formatted_s(:short) %></li>
+        </ul>
     <% end %>
+  <% else %>
+   <p>You don't have any bookings yet.</p>
+  <% end %>
 
-    <h1>Book a LaundryTime</h1>
+  <h1>Book a LaundryTime</h1>
     <table>
       <tr>
         <th>ID</th>
@@ -33,7 +33,6 @@
         <th>Actions</th>
       </tr>
       <% @laundry_rooms.each do |room| %>
-<<<<<<< HEAD
         <tr>
           <td>
             <%= room.id %>
@@ -45,15 +44,16 @@
                   <td>
                     <%= slot.beginning_of_hour.to_formatted_s(:short) %>
                   </td>
+                  <% # binding.pry %>
                   <td>
-                    <%= link_to 'Book', laundry_room_create_booking_path(room, time: slot.beginning_of_hour.to_formatted_s(:short)) %>
+                    <%= link_to_if room,
+                                   'Book', laundry_room_create_booking_path(room, time: slot.beginning_of_hour.to_formatted_s(:short)) %>
                   </td>
                 </tr>
               <% end %>
             </table>
           </td>
         </tr>
-=======
           <tr>
             <td>
               <%= room.id %>
@@ -80,7 +80,6 @@
               </table>
             </td>
           </tr>
->>>>>>> 0141d4e... not showing book if it is already booked
       <% end %>
     </table>
 <% end %>
