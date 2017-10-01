@@ -37,6 +37,7 @@ When(/^I try to access booking link for "([^"]*)"$/) do |date|
   visit laundry_room_create_booking_path(@laundry, time: date)
 end
 
+
 Then(/^I should not see the text "([^"]*)"$/) do |text|
   expect(page).to have_no_content(text)
 end

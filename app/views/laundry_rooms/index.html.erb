@@ -8,6 +8,7 @@
               <% if booking[:time] > (DateTime.now - 5.hours) %>
                 <ul>
                   <li><%= booking[:time].beginning_of_hour.to_formatted_s(:short) %></li>
+                  <%= link_to 'Unbook', laundry_room_delete_booking_path(laundry_room_id: @laundry_rooms.ids, time: booking[:time]) %>
                 </ul>
               <% end %>
             <% end %>
@@ -54,4 +55,3 @@
   </div>
   <%= image_tag('unicorn.png', align: 'middle', height: 300, class: 'image') %>
 <% end %>
-
