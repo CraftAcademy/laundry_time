@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <%= favicon_link_tag(source='favicon.ico') %>
   <title>LaundryTime</title>
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -12,11 +13,8 @@
 <%= render 'shared/navigation' %>
 <div class="container">
   <% flash.each do |key, value| %>
-      <div class="text-center <%= flash_class(key) %>">
-        <%= value %>
-      </div>
+      <%= content_tag(:div, value, class: ['text-center', flash_class(key)]) %>
   <% end %>
-
   <%= yield %>
 </div>
 </body>
