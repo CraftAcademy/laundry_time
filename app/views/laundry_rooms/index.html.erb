@@ -1,5 +1,5 @@
 <% if current_user %>
-    <h3><%= current_user.email %> bookings:</h3>
+    <h3><%= current_user.email %>'s bookings:</h3>
     <% if current_user.bookings.any? %>
     <% current_user.bookings.each do |booking| %>
       <ul>
