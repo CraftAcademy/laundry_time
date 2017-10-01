@@ -107,6 +107,8 @@ h1, h2, p {
   text-align: center;
 }
 
-image {
-  align-content: center;
+IMG.image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
 }
