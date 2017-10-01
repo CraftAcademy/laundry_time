@@ -1,36 +1,56 @@
-<h1>It's LaundryTime! </h1>
-<h2>Welcome to LaundryTime for Unicorn-Apartments</h2>
-<p>This is where the cleaning magic happens - book the laundry room online and save precious dreamtime!
-  If you don't have an account, you can sign up with your email - and soon enough your clothes will
-  smell of fresh rainbows.
-  Having problems with the site? Email our system admin at unicorn_boss@rainbows.now</p>
-
 <% if current_user %>
-  <h1>Your bookings:</h1>
-    <% if current_user.bookings.any? %>
-    <% current_user.bookings.each do |booking| %>
-      <ul>
-        <li><%= booking[:time].beginning_of_hour.to_formatted_s(:short) %></li>
-      </ul>
-    <% end %>
-  <% else %>
-    <p>You don't have any bookings yet.</p>
-  <% end %>
-
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h3>Your bookings:</h3>
+          <% if current_user.bookings.any? %>
+              <% current_user.bookings.each do |booking| %>
+                  <ul>
+                    <li><%= booking[:time].beginning_of_hour.to_formatted_s(:short) %></li>
+                  </ul>
+              <% end %>
+          <% else %>
+              <p>You don't have any bookings yet.</p>
+          <% end %>
+          </div>
+        <div class="col">
+          <h3>You may:</h3>
+          <ul>
+            <li>only book two weeks in advance</li>
+            <li>only have two time slots booked</li>
+            <li>not smoke in the laundry room</li>
+            <li>not leave the laundry room dirty</li>
+          </ul>
+        </div>
+        <div class="col">
+          <%= image_tag('unicorn.png', align: 'middle', height: 170, class: 'image') %>
+        </div>
+        </div>
+    </div>
+    
   <% @laundry_rooms.each do |room| %>
     <%= month_calendar events: room.schedule.next_occurrences(30) do |date, slots| %>
       <%= date.day %>
-
       <% slots.each do |slot| %>
         <div data-date="<%= slot.to_formatted_s(:short) %>">
           <% if room.check_availability time: slot, amount: 1 %>
             <%= link_to slot.strftime('%H:%M'), laundry_room_create_booking_path(room, time: slot.beginning_of_hour.to_formatted_s(:short)) %>
           <% else %>
-            <strong><%= slot.strftime('%H:%M') %></strong>
+            <div id='booked'><%= slot.strftime('%H:%M') %></div>
           <% end %>
         </div>
       <% end %>
     <% end %>
   <% end %>
+<% else %>
+    <h1>It's LaundryTime! </h1>
+    <h2>Welcome to LaundryTime for Unicorn-Apartments</h2>
+    <div id="centered">
+    <p>This is where the cleaning magic happens - book the laundry room online and save precious dream time!
+    <br>  If you don't have an account, you can sign up with your email - and soon enough your clothes will
+      smell of fresh rainbows.
+    <br>Having problems with the site? Email our system admin at unicorn_boss@rainbows.now</p>
+    </div>
+    <%= image_tag('unicorn.png', align: 'middle', height: 300, class: 'image') %>
 <% end %>
 
