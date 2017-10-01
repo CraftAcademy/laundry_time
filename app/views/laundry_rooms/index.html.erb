@@ -1,14 +1,29 @@
 <% if current_user %>
-    <h3><%= current_user.email %>'s bookings:</h3>
-    <% if current_user.bookings.any? %>
-    <% current_user.bookings.each do |booking| %>
-      <ul>
-        <li><%= booking[:time].beginning_of_hour.to_formatted_s(:short) %></li>
-      </ul>
-    <% end %>
-  <% else %>
-    <p>You don't have any bookings yet.</p>
-  <% end %>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h3>Rules:</h3>
+          <ul>
+            <li>You may only book two weeks in advance</li>
+            <li>You may only have two time slots booked</li>
+            <li>You may not smoke in the laundry room</li>
+            <li>You are required to keep the laundry room clean</li>
+          </ul>        </div>
+        <div class="col">
+          <h3><%= current_user.email %>'s bookings:</h3>
+          <% if current_user.bookings.any? %>
+              <% current_user.bookings.each do |booking| %>
+                  <ul>
+                    <li><%= booking[:time].beginning_of_hour.to_formatted_s(:short) %></li>
+                  </ul>
+              <% end %>
+          <% else %>
+              <p>You don't have any bookings yet.</p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    
   <% @laundry_rooms.each do |room| %>
     <%= month_calendar events: room.schedule.next_occurrences(30) do |date, slots| %>
       <%= date.day %>
