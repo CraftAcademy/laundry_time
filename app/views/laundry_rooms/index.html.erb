@@ -44,7 +44,7 @@
                       <td>
                         <%= slot.beginning_of_hour.to_formatted_s(:short) %>
                       </td>
-                      <% if room.bookings.detect {|occ| occ.time = slot} %>
+                      <% if room.bookings.detect {|occ| occ.time == slot} %>
                           <td>
                             Booked
                           </td>

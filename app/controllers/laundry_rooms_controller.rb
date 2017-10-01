@@ -12,7 +12,6 @@ class LaundryRoomsController < ApplicationController
                        .occurrences(1.week.from_now)
                        .detect {|occ| occ.beginning_of_hour.localtime == slot.localtime}
     begin
-      # binding.pry
       current_user.book! room, time: slot_to_book, amount: 1
       redirect_to root_path, notice: "You have a booking #{slot.to_formatted_s(:short)}. Great stuff"
     rescue ActsAsBookable::AvailabilityError => error
