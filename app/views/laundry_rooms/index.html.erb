@@ -44,31 +44,9 @@
                       <td>
                         <%= slot.beginning_of_hour.to_formatted_s(:short) %>
                       </td>
-                      <% # binding.pry %>
                       <td>
-                        <%= link_to_if room,
-                                       'Book', laundry_room_create_booking_path(room, time: slot.beginning_of_hour.to_formatted_s(:short)) %>
+                        <%= link_to 'Book', laundry_room_create_booking_path(room, time: slot.beginning_of_hour.to_formatted_s(:short)) %>
                       </td>
-                    </tr>
-                <% end %>
-              </table>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <%= room.id %>
-            </td>
-            <td>
-              <table>
-                <% room.schedule.next_occurrences(4).each do |slot| %>
-                    <tr data-date="<%= slot.beginning_of_hour.to_formatted_s(:short) %>">
-                      <td>
-                        <%= slot.beginning_of_hour.to_formatted_s(:short) %>
-                      </td>
-                      <td>
-                        <%= link_to_if room,
-                                       'Book', laundry_room_create_booking_path(room, time: slot.beginning_of_hour.to_formatted_s(:short)) %>
-
                     </tr>
                 <% end %>
               </table>
