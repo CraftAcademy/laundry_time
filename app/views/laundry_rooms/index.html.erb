@@ -1,5 +1,5 @@
 <% if current_user %>
-    <h3><%= current_user.email %>'s bookings:</h3>
+    <h3><%= current_user.email %> bookings:</h3>
     <% if current_user.bookings.any? %>
     <% current_user.bookings.each do |booking| %>
       <ul>
@@ -12,7 +12,6 @@
   <% @laundry_rooms.each do |room| %>
     <%= month_calendar events: room.schedule.next_occurrences(30) do |date, slots| %>
       <%= date.day %>
-
       <% slots.each do |slot| %>
         <div data-date="<%= slot.to_formatted_s(:short) %>">
           <% if room.check_availability time: slot, amount: 1 %>
