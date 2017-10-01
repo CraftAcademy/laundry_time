@@ -1,7 +1,7 @@
 <h1>It's LaundryTime! </h1>
 
 <% if current_user %>
-    <h1>Your bookings:</h1>
+    <h3>Your bookings:</h3>
     <% if current_user.bookings.any? %>
     <% current_user.bookings.each do |booking| %>
       <ul>
@@ -29,9 +29,9 @@
 <% else %>
     <h2>Welcome to LaundryTime for Unicorn-Apartments</h2>
     <p>This is where the cleaning magic happens - book the laundry room online and save precious dreamtime!
-      If you don't have an account, you can sign up with your email - and soon enough your clothes will
+    <br>  If you don't have an account, you can sign up with your email - and soon enough your clothes will
       smell of fresh rainbows.
-      Having problems with the site? Email our system admin at unicorn_boss@rainbows.now</p>
-    <img src="/app/assets/images/unicorn.png" alt="Unicorn">
+    <br>Having problems with the site? Email our system admin at unicorn_boss@rainbows.now</p>
+    <%= image_tag('unicorn.png', align: 'middle', height: 300, class: 'image') %>
 <% end %>
 
