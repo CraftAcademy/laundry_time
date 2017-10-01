@@ -2,9 +2,6 @@
 body {
   background-color: rgb(255, 255, 255);
   color: #633472;
-  a:link {
-    color: white;
-  }
 }
 
 .navbar-nav > li >a{
@@ -91,3 +88,48 @@ td {
 .has-events {}
 }
 
+.calendar-title {
+  font-size: 40px;
+}
+
+.calendar-heading {
+  text-align: center;
+  padding-top: 20px;
+  font-weight: bold;
+}
+
+.calendar-heading a {
+  visibility: hidden;
+}
+
+#links li, #links a {
+  color: white;
+  padding-right: 20px;
+}
+
+h1, h2 {
+  padding-top:20px;
+  text-align: center;
+}
+
+#centered {
+  text-align: center;
+}
+
+h3 {
+  padding-top:20px;
+}
+
+IMG.image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+a {
+  color: green;
+}
+
+#booked {
+  color: red;
+}
