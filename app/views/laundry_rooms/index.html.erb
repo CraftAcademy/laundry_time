@@ -9,7 +9,7 @@
   <h1>Your bookings:</h1>
     <% if current_user.bookings.any? %>
     <% current_user.bookings.each do |booking| %>
-      <% if booking[:time] > DateTime.now %>
+      <% if booking[:time] > (DateTime.now - 5.hours) %>
         <ul>
           <li><%= booking[:time].beginning_of_hour.to_formatted_s(:short) %></li>
         </ul>
