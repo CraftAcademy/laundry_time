@@ -9,10 +9,10 @@
                 <ul>
                   <li><%= booking[:time].beginning_of_hour.to_formatted_s(:short) %></li>
                 </ul>
-                <% end %>
               <% end %>
+            <% end %>
           <% else %>
-            <p>You don't have any bookings yet.</p>
+              <p>You don't have any bookings yet.</p>
           <% end %>
         </div>
         <div class="col">
