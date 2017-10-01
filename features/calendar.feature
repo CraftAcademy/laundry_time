@@ -10,6 +10,5 @@ Feature: User can go to landing page
 
   Scenario: User can navigate to calendar page
     Given there is a user logged in
-    Then show me the page
     And I click on "Calendar"
     Then I should be on the calendar page
