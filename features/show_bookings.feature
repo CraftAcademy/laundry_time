@@ -17,3 +17,9 @@ Feature: User can see a list of their laundry bookings
   Scenario: User don't have any bookings
     Given user visits the booking page
     Then I should see the text "You don't have any bookings yet."
+
+  Scenario: User should not see passed bookings
+    Given user visits the booking page
+    And I click on calendar link "01 Sep 08:00"
+    Then time is frozen at 2017-09-02
+    And I should not see the text "01 Sep 08:00"
