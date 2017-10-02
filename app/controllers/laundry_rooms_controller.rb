@@ -15,8 +15,8 @@ class LaundryRoomsController < ApplicationController
     if active_booking.length < 2
       begin
         current_user.book! room, time: slot_to_book, amount: 1
+        flash[:notice] = "You have a booking #{slot.to_formatted_s(:short)}. Smell the rainbows!"
         redirect_to root_path
-      flash[:notice] = "You have a booking #{slot.to_formatted_s(:short)}. Smell the rainbows!"
     rescue ActsAsBookable::AvailabilityError => error
       redirect_to root_path, notice: error.message.underscore.humanize
       end
@@ -27,7 +27,7 @@ class LaundryRoomsController < ApplicationController
   end
 
   def delete_booking
-    active_booking = current_user.bookings.detect { |booking| booking.time == Time.parse(params[:time]) }
+    active_booking = current_user.bookings.detect { |booking| booking.time == Time.zone.parse(params[:time]) }
     active_booking.delete
     flash[:notice] = 'You have successfully cancelled your booking.'
     redirect_to root_path
