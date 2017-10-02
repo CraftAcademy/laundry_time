@@ -1,5 +1,5 @@
-# LaundryTime app
-August 2017 Craft Academy Mid Course Project
+# [LaundryTime](https://laundrytime.herokuapp.com/)
+August 2017 Craft Academy Mid Course Project. You can use the deployed app [here](https://laundrytime.herokuapp.com/).
 
 [![Coverage Status](https://coveralls.io/repos/github/CraftAcademy/laundry_time/badge.svg?branch=develop)](https://coveralls.io/github/CraftAcademy/laundry_time?branch=develop)
 
@@ -8,7 +8,7 @@ We created an app which allows users to sign up and book a laundry room. You cre
 In the calendar you will see the next 30 time slots. Available times will be shown as green links, unavailable times will be shown as red text.
 
 When you press "Book" you will see a success-flash, and your booked time will show up in a list for you bookings, sorted by date. Only active bookings will be listed.
-You can only have two active bookings at a time. User can unbook their slots.
+You can only have two active bookings at a time. User can also unbook their slots.
 
 ## Getting Started
 
@@ -32,7 +32,7 @@ Run bundle install to install dependencies.
 We used Rspec for unit tests, and Cucumber for feature tests.
 Run rake to see all the tests pass.
 
-### Break down into end to end tests(?)
+### Break down into end to end tests
 
 We test the user, laundry_room and sign up with Rspec and Cucumber.
 
@@ -75,7 +75,7 @@ end
 
 ## Deployment
 
-We automatically deploy this app with [Heroku](https://www.heroku.com/).
+We automatically deploy this app with [Heroku](https://www.heroku.com/). You can find it [here](https://laundrytime.herokuapp.com/).
 
 ## Built With
 * [Devise](https://github.com/plataformatec/devise)
